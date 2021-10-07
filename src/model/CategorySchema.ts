@@ -1,4 +1,4 @@
-import { ObjectType, Field } from 'type-graphql';
+import { ObjectType, Field, Int } from 'type-graphql';
 import { Entity, BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
@@ -13,21 +13,6 @@ export class CategorySchema extends BaseEntity {
     name: string;
 
     @PrimaryGeneratedColumn()
-    id: string;
+    @Field(() => Int)
+    _id: string;
 }
-
-/*
-const Schema = new mongoose.Schema({
-    description: {
-        type: String,
-        required: true,
-    },
-    name: {
-        type: String,
-        required: true,
-    }
-})
-
-export default mongoose.model("Categories", Schema)
-
-*/

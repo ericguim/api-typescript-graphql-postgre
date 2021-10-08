@@ -9,7 +9,10 @@
 - #### Node.js / Apollo / Postgres / GraphQL
 > Node 14.17 with TS 4.1, Apollo 2.19, Postgres(pg 8.7), GraphQL 15.5 were the tech chosen for this project.
 
-#### The project was not set up to run with dot-env for time restrictions, will be added in the near future.
+
+
+##### The project was not set up to run with dot-env for time restrictions, will be added in the near future.
+
 
 
 #### To run the database locally, start trough command:

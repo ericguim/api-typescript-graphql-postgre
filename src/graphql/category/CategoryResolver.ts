@@ -10,7 +10,6 @@ class CategoryInput {
    @Field()
     description: string
 }
- 
 
 @Resolver(Category)
 class CategoryResolver {
@@ -18,6 +17,11 @@ class CategoryResolver {
     @Query(() => [Category])
     async categories() {
         return await CategorySchema.find()
+    }
+
+    @Query(() => Category)
+    async category(@Arg("_id") _id: string){
+        return await CategorySchema.findOne(_id);
     }
 
     @Mutation(() => Category)

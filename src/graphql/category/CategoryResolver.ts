@@ -1,5 +1,5 @@
-import { Resolver, Query, Mutation, InputType, Arg, Field, } from 'type-graphql'
-import { CategorySchema } from '../../model/CategorySchema';
+import { Resolver, Query, Mutation, InputType, Arg, Field, } from 'type-graphql';
+import CategoryService from '../../service/CategoryService';
 import Category from './Category';
 
 @InputType()
@@ -16,18 +16,18 @@ class CategoryResolver {
     
     @Query(() => [Category])
     async categories() {
-        return await CategorySchema.find()
+        return await CategoryService.find();
     }
 
     @Query(() => Category)
     async category(@Arg("_id") _id: string){
-        return await CategorySchema.findOne(_id);
+        return await CategoryService.findOne(_id);
     }
 
     @Mutation(() => Category)
     async createCategory(@Arg("categoryInput") categoryInput: CategoryInput) {
-        const category = await CategorySchema.create(categoryInput);
-        return await CategorySchema.save(category);
+        
+        return CategoryService.createCategory(categoryInput);
     }
 }
 
